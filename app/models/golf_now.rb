@@ -15,7 +15,7 @@ class GolfNow < ApplicationRecord
             },
             contextOut: [],
             source: ''
-        }
+        }.to_json
     end
     
 end
