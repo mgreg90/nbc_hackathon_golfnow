@@ -6,13 +6,38 @@ class GolfNow < ApplicationRecord
             text: 'yep'
             data: {
                 slack: {
-                    "attachment":{
-                        "type":"image",
-                        "payload":{
-                           "url":"http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg"
-                        }
-                    }
+    "text": speech,
+    "attachments": [
+        {
+            "title": channel.get('title'),
+            "title_link": channel.get('link'),
+            "color": "#36a64f",
+
+            "fields": [
+                {
+                    "title": "Condition",
+                    "value": "Temp " + condition.get('temp') +
+                             " " + units.get('temperature'),
+                    "short": "false"
                 },
+                {
+                    "title": "Wind",
+                    "value": "Speed: " + channel.get('wind').get('speed') +
+                             ", direction: " + channel.get('wind').get('direction'),
+                    "short": "true"
+                },
+                {
+                    "title": "Atmosphere",
+                    "value": "Humidity " + channel.get('atmosphere').get('humidity') +
+                             " pressure " + channel.get('atmosphere').get('pressure'),
+                    "short": "true"
+                }
+            ],
+
+            "thumb_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif"
+        }
+    ]
+},
             },
             contextOut: [],
             source: ''
