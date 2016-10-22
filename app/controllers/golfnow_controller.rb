@@ -5,13 +5,15 @@ class GolfnowController < ApplicationController
   end
   
   def post
+    #   p params
+    #   render json: {post: 'some text'}
       render json: params
   end
   
   private
   
-  def params
-      params
-  end
+  # def params
+  #     params
+  # end
   
 end
