@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: nbc_hackathon_golfnow_production
-  username: nbc_hackathon_golfnow
-  password: <%= ENV['NBC_HACKATHON_GOLFNOW_DATABASE_PASSWORD'] %>
+  # username: nbc_hackathon_golfnow
+  # password: <%= ENV['NBC_HACKATHON_GOLFNOW_DATABASE_PASSWORD'] %>
