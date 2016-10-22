@@ -1,5 +1,5 @@
 class GolfNow < ApplicationRecord
-    def tee_times_by_course_and_time_and_location(params)
+    def self.tee_times_by_course_and_time_and_location(params)
         {
             speech: '',
             displayText: '',
