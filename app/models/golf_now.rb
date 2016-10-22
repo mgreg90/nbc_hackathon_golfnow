@@ -3,11 +3,11 @@ class GolfNow < ApplicationRecord
         {
             speech: '',
             displayText: '',
-            text: 'yep'
+            text: 'yep',
             data: {
                 slack: {
-    "text": speech,
-    "attachments": [
+                    "text": speech,
+                    "attachments": [
         {
             "title": channel.get('title'),
             "title_link": channel.get('link'),
