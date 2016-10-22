@@ -6,35 +6,22 @@ class GolfNow < ApplicationRecord
             text: 'yep',
             data: {
                 slack: {
-                    "text": speech,
+                    "text": 'hello world!',
                     "attachments": [
         {
-            "title": channel.get('title'),
-            "title_link": channel.get('link'),
+            "title": 'Title',
+            "title_link": 'title_lin',
             "color": "#36a64f",
 
             "fields": [
                 {
                     "title": "Condition",
-                    "value": "Temp " + condition.get('temp') +
-                             " " + units.get('temperature'),
+                    "value": "value",
                     "short": "false"
-                },
-                {
-                    "title": "Wind",
-                    "value": "Speed: " + channel.get('wind').get('speed') +
-                             ", direction: " + channel.get('wind').get('direction'),
-                    "short": "true"
-                },
-                {
-                    "title": "Atmosphere",
-                    "value": "Humidity " + channel.get('atmosphere').get('humidity') +
-                             " pressure " + channel.get('atmosphere').get('pressure'),
-                    "short": "true"
                 }
             ],
 
-            "thumb_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif"
+            "thumb_url": "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg"
         }
     ]
 },
