@@ -12,10 +12,4 @@ class GolfnowController < ApplicationController
     #   render json: params
   end
   
-  private
-  
-  # def clean_params
-  #     params['result']
-  # end
-  
 end
