@@ -7,13 +7,15 @@ class GolfnowController < ApplicationController
   def post
     #   p params
     #   render json: {post: 'some text'}
+      puts params
+      tee_times_by_course_and_time_and_location(params)
       render json: params
   end
   
   private
   
-  # def params
-  #     params
-  # end
+  def params
+      params['result']
+  end
   
 end
