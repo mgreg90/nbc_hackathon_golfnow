@@ -5,7 +5,7 @@ class GolfNow < ApplicationRecord
             displayText: '',
             text: 'yep'
             data: {
-                facebook: {
+                slack: {
                     "attachment":{
                         "type":"image",
                         "payload":{
@@ -13,13 +13,11 @@ class GolfNow < ApplicationRecord
                         }
                     }
                 },
-                slack: {
-                    text: "hello!"
-                }
             },
             contextOut: [],
             source: ''
         }.to_json
+        # data
     end
     
 end
