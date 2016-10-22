@@ -3,6 +3,7 @@ class GolfNow < ApplicationRecord
         {
             speech: '',
             displayText: '',
+            text: 'yep',
             data: {
                 facebook: {
                     "attachment":{
