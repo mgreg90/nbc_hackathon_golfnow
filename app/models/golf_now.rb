@@ -1,0 +1,2 @@
+class GolfNow < ApplicationRecord
+end
