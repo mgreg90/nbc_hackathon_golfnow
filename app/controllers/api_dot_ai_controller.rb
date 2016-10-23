@@ -28,7 +28,7 @@ class ApiDotAiController < ApplicationController
     #     eval x[:render]
     #   end
       render json: Competition.slackify
-      render json: GolfNow.tee_times_by_course_and_time_and_location(params)
+      # render json: GolfNow.tee_times_by_course_and_time_and_location(params)
     # end
     # if VALID_ACTIONS.include? action
     #   send(VALID_ACTIONS[VALID_ACTIONS.index { |x| }])
