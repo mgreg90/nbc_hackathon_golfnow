@@ -96,7 +96,7 @@ class Competition
     {
       thumb_url: image,
       title: name,
-      title_link: 'http://www.google.com', # TODO need a url
+      title_link: 'http://j569d3.axshare.com/social_media_component.html', # TODO need a url
       color: '#308b52',
       fields: [
         {
