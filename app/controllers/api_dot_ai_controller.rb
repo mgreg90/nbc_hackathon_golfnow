@@ -15,7 +15,8 @@ class ApiDotAiController < ApplicationController
   
   def action_handler
     puts "*" * 50
-    p "PARAMS: #{params}"
+    puts "PARAMS:"
+    p params
     HTTParty.post("#{BASE_URL}action_url", query: params) if valid_actions.include? action
   end
   
