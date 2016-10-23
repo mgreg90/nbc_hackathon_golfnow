@@ -96,7 +96,6 @@ class Competition
   end
   
   def slackify
-    binding.pry
     # name, course name, address, start_time, end_time, spots_left
     {
       speech: '',
