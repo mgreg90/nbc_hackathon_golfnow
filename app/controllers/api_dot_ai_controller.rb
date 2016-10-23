@@ -23,7 +23,7 @@ class ApiDotAiController < ApplicationController
     p params
     VALID_ACTIONS.each do |x|
       if x[:action] == action
-        send x[:render]
+        eval x[:render]
       end
     end
     # if VALID_ACTIONS.include? action
