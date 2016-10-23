@@ -70,7 +70,7 @@ class Competition
   end
   
   def city_state_zip
-    "#{address['city']}, #{address['stateOrProvincialCode']} #{address['postalCode'][0..4]}"
+    "#{address['city']}, #{address['stateOrProvinceCode']} #{address['postalCode'][0..4]}"
   end
   
   def dates
