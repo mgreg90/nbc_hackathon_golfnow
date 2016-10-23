@@ -2,7 +2,8 @@ class GolfNow < ApplicationRecord
   require 'base64'
   
   GOLF_NOW_URL = 'https://affiliate.gnsvc.com/api/'
-  GET_COURSE_REQUEST = "v1/channels/#{ENV['CHANNEL_ID']}/course-summaries"
+  GET_COURSE_SUM_REQUEST = "v1/channels/#{ENV['CHANNEL_ID']}/course-summaries"
+  GET_COURSE_REQUEST = "v1/channels/#{ENV['CHANNEL_ID']}/courses/"
   PROX = 200
   
   
@@ -39,8 +40,11 @@ class GolfNow < ApplicationRecord
   
   def self.get_courses(params)
     query = { latitude: params[:latitude], longitude: params[:longitude], proximity: PROX }
-    binding.pry
-    HTTParty.get("#{GOLF_NOW_URL}#{GET_COURSE_REQUEST}", query: query, headers: headers)
+    HTTParty.get("#{GOLF_NOW_URL}#{GET_COURSE_SUM_REQUEST}", query: query, headers: headers)
+  end
+  
+  def self.get_course_by_id(id)
+    HTTParty.get("#{GOLF_NOW_URL}#{GET_COURSE_REQUEST}#{id}", headers: headers).parsed_response
   end
   
   def self.headers
