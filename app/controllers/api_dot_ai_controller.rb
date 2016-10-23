@@ -19,6 +19,7 @@ class ApiDotAiController < ApplicationController
     p params
     if valid_actions.include? action
       HTTParty.post("#{BASE_URL}#{action_url}", query: params.to_h) and return
+    end
   end
   
   def action
