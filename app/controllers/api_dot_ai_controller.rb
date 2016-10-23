@@ -6,7 +6,7 @@ class ApiDotAiController < ApplicationController
   include CompetitionControllerMethods
   
   BASE_URL = "https://golfnow-hackathon.herokuapp.com"
-  VALID_CONTROLLERS_ACTIONS = [
+  VALID_ACTIONS = [
     'get_competitions',
     'get_courses'
   ]
@@ -15,7 +15,7 @@ class ApiDotAiController < ApplicationController
     puts "*" * 50
     puts "PARAMS:"
     p params
-    if valid_actions.include? action
+    if VALID_ACTIONS.include? action
       send action
     end
   end
@@ -23,9 +23,5 @@ class ApiDotAiController < ApplicationController
   def action
     params['result']['action']
   end
-    
-  def valid_actions
-    VALID_CONTROLLERS_ACTIONS.map { |x| x[:action] }
-  end
-  
+      
 end
