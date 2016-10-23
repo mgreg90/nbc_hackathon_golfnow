@@ -22,7 +22,7 @@ class ApiDotAiController < ApplicationController
     puts "PARAMS:"
     p params
     puts "*" * 50
-    p Competition.create_four.map{ |c| c.slackify }
+    p Competition.slackify
     # VALID_ACTIONS.each do |x|
     #   if x[:action] == action
     #     eval x[:render]
