@@ -74,12 +74,12 @@ class Competition
   end
   
   def dates
-    "#{start_time.month} #{start_time.day} - #{end_time.day}"
+    "#{start_time.month}/#{start_time.day}#{(" - " + end_time.day.to_s) if start_time.day != end_time.day}"
   end
   
   def times
-    "#{start_time.hour}:#{start_time.min} #{am_or_pm(start_time.hour)} - "\
-    "#{end_time.hour}:#{end_time.min} #{am_or_pm(end_time.hour)}"
+    "#{start_time.hour}:#{'0' if start_time.min.length < 2}#{start_time.min} #{am_or_pm(start_time.hour)} - "\
+    "#{end_time.hour}:#{'0' if start_time.min.length < 2}#{end_time.min} #{am_or_pm(end_time.hour)}"
   end
   
   def am_or_pm(int)
@@ -101,7 +101,7 @@ class Competition
       fields: [
         {
           title: 'Hosted By',
-          value: "#{course[:name]}\n#{street_address}\n#{city_state_zip}",
+          value: "#{course['name']}\n#{street_address}\n#{city_state_zip}",
           short: true
         }, {
           title: 'Time',
