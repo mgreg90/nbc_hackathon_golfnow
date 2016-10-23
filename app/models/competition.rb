@@ -10,6 +10,7 @@ class Competition
       start_time = Time.new(2016, 10, 30, 8, 0, 0, "-05:00")
       end_time = Time.new(2016, 10, 30, 16, 0, 0, "-05:00")
       options = { spots_left: 7 }
+      names = ["Booze 'n' Backswings", "Long Ball"]
       [3635, 3664, 5527].map.with_index do |x, i|
         new("Competition ##{i+1}", x, start_time, end_time, options).attachment
       end
@@ -22,7 +23,8 @@ class Competition
         displayText: '',
         text: 'yep',
         data: {
-          slack: slack_sub_hash(create_three)
+          slack: slack_sub_hash(create_three),
+          facebook: facebook_sub_hash(create_three)
         },
         contextOut: [],
         source: ''
@@ -33,6 +35,26 @@ class Competition
       {
         text: "Check it out! A competition near you.",
         attachments: attachments
+      }
+    end
+    
+    def facebook_sub_hash(attachments=[])
+      {
+        text: "Check it out! A competition near you.",
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: [
+              {
+                image_url: DEFAULT_IMAGE_PATH,
+                subtitle: "Test text",
+                title: "Title text",
+                item_url: "http://j569d3.axshare.com/social_media_component.html"
+              }
+            ]
+          }
+        }
       }
     end
     
@@ -70,7 +92,7 @@ class Competition
   end
   
   def city_state_zip
-    "#{address['city']}, #{address['stateOrProvincialCode']} #{address['postalCode'][0..4]}"
+    "#{address['city']}, #{address['stateOrProvinceCode']} #{address['postalCode'][0..4]}"
   end
   
   def dates
