@@ -41,7 +41,20 @@ class Competition
     def facebook_sub_hash(attachments=[])
       {
         text: "Check it out! A competition near you.",
-        attachments: attachments
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: [
+              {
+                image_url: DEFAULT_IMAGE_PATH,
+                subtitle: "Test text",
+                title: "Title text",
+                item_url: "http://j569d3.axshare.com/social_media_component.html"
+              }
+            ]
+          }
+        }
       }
     end
     
