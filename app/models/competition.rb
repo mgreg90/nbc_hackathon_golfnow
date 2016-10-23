@@ -72,7 +72,7 @@ class Competition
   def city_state_zip
     p "=" * 50
     p address
-    "#{address['city']}, #{address['stateOrProvincialCode']} #{address['postalCode'][0..4]}"
+    "#{address['city']}, #{address['stateOrProvinceCode']} #{address['postalCode'][0..4]}"
   end
   
   def dates
