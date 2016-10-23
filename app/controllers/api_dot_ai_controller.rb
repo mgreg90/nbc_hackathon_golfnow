@@ -7,8 +7,13 @@ class ApiDotAiController < ApplicationController
   
   BASE_URL = "https://golfnow-hackathon.herokuapp.com"
   VALID_ACTIONS = [
-    'get_competitions',
-    'get_courses'
+    {
+      action: 'get_competitions',
+      render: "render json: Competition.create_four.map{ |c| c.slackify }.to_json"
+    }, {
+      action: 'get_courses',
+      render: "render json: GolfNow.get_courses(params)"
+    }
   ]
   
   def action_handler
@@ -16,9 +21,14 @@ class ApiDotAiController < ApplicationController
     puts "*" * 50
     puts "PARAMS:"
     p params
-    if VALID_ACTIONS.include? action
-      send action
+    VALID_ACTIONS.each do |x|
+      if x[:action] == action
+        send x[:render]
+      end
     end
+    # if VALID_ACTIONS.include? action
+    #   send(VALID_ACTIONS[VALID_ACTIONS.index { |x| }])
+    # end
   end
   
   def action
