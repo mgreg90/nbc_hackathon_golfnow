@@ -22,7 +22,7 @@ class Competition
         displayText: '',
         text: 'yep',
         data: {
-          slack: slack_sub_hash(creat_three)
+          slack: slack_sub_hash(create_three)
         },
         contextOut: [],
         source: ''
