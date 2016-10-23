@@ -1,5 +1,5 @@
-require '../modules/golfnow_controller_methods.rb'
-require '../modules/competition_controller_methods.rb'
+require '../modules/golfnow_controller_methods'
+require '../modules/competition_controller_methods'
 
 class ApiDotAiController < ApplicationController
   include 'golfnow_controller_methods'
