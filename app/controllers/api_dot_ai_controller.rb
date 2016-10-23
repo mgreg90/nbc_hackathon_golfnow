@@ -21,6 +21,8 @@ class ApiDotAiController < ApplicationController
     puts "*" * 50
     puts "PARAMS:"
     p params
+    puts "*" * 50
+    p Competition.create_four.map{ |c| c.slackify }.to_json
     # VALID_ACTIONS.each do |x|
     #   if x[:action] == action
     #     eval x[:render]
