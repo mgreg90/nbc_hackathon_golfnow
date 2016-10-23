@@ -27,7 +27,8 @@ class ApiDotAiController < ApplicationController
     #   if x[:action] == action
     #     eval x[:render]
     #   end
-      render json: (Competition.create_four.map{ |c| c.slackify }).to_json
+      # render json: (Competition.create_four.map{ |c| c.slackify }).to_json
+      render json: GolfNow.tee_times_by_course_and_time_and_location(params)
     # end
     # if VALID_ACTIONS.include? action
     #   send(VALID_ACTIONS[VALID_ACTIONS.index { |x| }])
