@@ -14,17 +14,17 @@ class GolfNow < ApplicationRecord
           "text": 'hello world!',
           "attachments": [
             {
+              "thumb_url": "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg",
               "title": 'Title',
               "title_link": 'title_lin',
               "color": "#36a64f",
               "fields": [
-                "thumb_url": "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg"
                 {
                   "title": "Condition",
                   "value": "value",
                   "short": "false"
                 }
-              ],
+              ]
             }
           ]
         },
