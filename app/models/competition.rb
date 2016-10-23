@@ -6,13 +6,34 @@ class Competition
   
   class << self
     
-    def create_four
+    def create_three
       start_time = Time.new(2016, 10, 30, 8, 0, 0, "-05:00")
       end_time = Time.new(2016, 10, 30, 16, 0, 0, "-05:00")
       options = { spots_left: 7 }
       [3635, 3664, 5527].map.with_index do |x, i|
-        new("Competition ##{i+1}", x, start_time, end_time, options)
+        new("Competition ##{i+1}", x, start_time, end_time, options).attachment
       end
+    end
+      
+    def slackify
+      # name, course name, address, start_time, end_time, spots_left
+      {
+        speech: '',
+        displayText: '',
+        text: 'yep',
+        data: {
+          slack: slack_sub_hash(creat_three)
+        },
+        contextOut: [],
+        source: ''
+      }
+    end
+    
+    def slack_sub_hash(attachments=[])
+      {
+        text: "Check it out! A competition near you.",
+        attachments: attachments
+      }
     end
     
   end
@@ -71,42 +92,23 @@ class Competition
     end
   end
   
-  def slack_sub_hash
+  def attachment
     {
-      text: "Check it out! A competition near you.",
-      attachments: [
+      thumb_url: image,
+      title: name,
+      title_link: 'http://www.google.com', # TODO need a url
+      color: '#308b52',
+      fields: [
         {
-          thumb_url: image,
-          title: name,
-          title_link: 'http://www.google.com', # TODO need a url
-          color: '#308b52',
-          fields: [
-            {
-              title: 'Hosted By',
-              value: "#{course[:name]}\n#{street_address}\n#{city_state_zip}",
-              short: true
-            }, {
-              title: 'Time',
-              value: "#{dates}\n#{times}"
-            }
-          ]
+          title: 'Hosted By',
+          value: "#{course[:name]}\n#{street_address}\n#{city_state_zip}",
+          short: true
+        }, {
+          title: 'Time',
+          value: "#{dates}\n#{times}"
         }
       ]
-    }
-  end
-  
-  def slackify
-    # name, course name, address, start_time, end_time, spots_left
-    {
-      speech: '',
-      displayText: '',
-      text: 'yep',
-      data: {
-        slack: slack_sub_hash
-      },
-      contextOut: [],
-      source: ''
-    }
+    }    
   end
   
 end
