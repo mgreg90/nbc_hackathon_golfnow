@@ -1,4 +1,4 @@
-class GolfnowController < ApplicationController
+module GolfnowControllerMethods
   
   def get
     render json: {some_key: "Hello world!"}
