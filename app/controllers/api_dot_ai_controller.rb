@@ -26,7 +26,7 @@ class ApiDotAiController < ApplicationController
     #     eval x[:render]
     #   end
       render json: Competition.create_four.map{ |c| c.slackify }.to_json
-    end
+    # end
     # if VALID_ACTIONS.include? action
     #   send(VALID_ACTIONS[VALID_ACTIONS.index { |x| }])
     # end
