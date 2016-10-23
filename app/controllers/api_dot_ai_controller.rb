@@ -12,6 +12,7 @@ class ApiDotAiController < ApplicationController
   ]
   
   def action_handler
+    p action
     puts "*" * 50
     puts "PARAMS:"
     p params
