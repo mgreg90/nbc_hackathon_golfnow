@@ -78,8 +78,12 @@ class Competition
   end
   
   def times
-    "#{start_time.hour}:#{'0' if start_time.min.to_s.length < 2}#{start_time.min} #{am_or_pm(start_time.hour)} - "\
-    "#{end_time.hour}:#{'0' if start_time.min.to_s.length < 2}#{end_time.min} #{am_or_pm(end_time.hour)}"
+    "#{clock_style(start_time.hour)}:#{'0' if start_time.min.to_s.length < 2}#{start_time.min} #{am_or_pm(start_time.hour)} - "\
+    "#{clock_style(end_time.hour)}:#{'0' if start_time.min.to_s.length < 2}#{end_time.min} #{am_or_pm(end_time.hour)}"
+  end
+  
+  def clock_style(int)
+    am_or_pm(int) == "PM" ? int - 12 : int
   end
   
   def am_or_pm(int)
