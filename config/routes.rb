@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   root 'golfnow#get'
   
-  post '/golfnow' => 'golfnow#post'
+  post '/api-dot-ai' => 'api_dot_ai#action_handler'
   
   post '/get_courses' => 'golfnow#get_courses'
   
