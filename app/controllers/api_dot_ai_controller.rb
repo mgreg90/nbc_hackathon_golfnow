@@ -2,8 +2,8 @@ require_relative '../modules/golfnow_controller_methods'
 require_relative '../modules/competition_controller_methods'
 
 class ApiDotAiController < ApplicationController
-  include 'golfnow_controller_methods'
-  include 'competition_controller_methods'
+  include GolfnowControllerMethods
+  include CompetitionControllerMethods
   
   BASE_URL = "https://golfnow-hackathon.herokuapp.com"
   VALID_CONTROLLERS_ACTIONS = [
