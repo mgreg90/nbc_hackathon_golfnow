@@ -1,5 +1,6 @@
 class ApiDotAiController < ApplicationController
   
+  BASE_URL = "https://golfnow-hackathon.herokuapp.com"
   VALID_CONTROLLERS_ACTIONS = [
     {
       controller: 'competition',
@@ -13,7 +14,7 @@ class ApiDotAiController < ApplicationController
   ]
   
   def action_handler
-    redirect_to action_url if valid_actions.include? action
+    HTTParty.post("#{BASE_URL}action_url", query: params) if valid_actions.include? action
   end
   
   def action
