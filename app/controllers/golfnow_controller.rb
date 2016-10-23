@@ -12,4 +12,8 @@ class GolfnowController < ApplicationController
     #   render json: params
   end
   
+  def get_courses
+    render json: GolfNow.get_courses params
+  end
+  
 end

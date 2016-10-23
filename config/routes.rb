@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'golfnow#get'
   
   post '/golfnow' => 'golfnow#post'
+  
+  post '/get_courses' => 'golfnow#get_courses'
 end

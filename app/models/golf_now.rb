@@ -1,6 +1,9 @@
 class GolfNow < ApplicationRecord
+  require 'base64'
   
-  GOLF_NOW_URL = 'https://affiliate.gnsvc.com/api'
+  GOLF_NOW_URL = 'https://affiliate.gnsvc.com/api/'
+  GET_COURSE_REQUEST = "v1/channels/#{ENV['CHANNEL_ID']}/course-summaries"
+  PROX = 200
   
   
   
@@ -34,8 +37,18 @@ class GolfNow < ApplicationRecord
     }.to_json
   end
   
-  def self.get_course(params)
-    HTTParty.get "#{GOLF_NOW_URL}"
+  def self.get_courses(params)
+    query = { latitude: params[:latitude], longitude: params[:longitude], proximity: PROX }
+    binding.pry
+    HTTParty.get("#{GOLF_NOW_URL}#{GET_COURSE_REQUEST}", query: query, headers: headers)
   end
   
+  def self.headers
+    auth = "#{ENV['GOLF_NOW_CLIENT_ID']}:#{ENV['GOLF_NOW_CLIENT_SECRET']}"
+    {
+      "Authorization" => "Basic #{Base64.encode64(auth).gsub(/\n+/, '')}",
+      "Content-Type" => 'application/json'
+    }
+  end
+    
 end
