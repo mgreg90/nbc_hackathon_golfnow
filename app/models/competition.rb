@@ -78,8 +78,8 @@ class Competition
   end
   
   def times
-    "#{start_time.hour}:#{'0' if start_time.min.length < 2}#{start_time.min} #{am_or_pm(start_time.hour)} - "\
-    "#{end_time.hour}:#{'0' if start_time.min.length < 2}#{end_time.min} #{am_or_pm(end_time.hour)}"
+    "#{start_time.hour}:#{'0' if start_time.min.to_s.length < 2}#{start_time.min} #{am_or_pm(start_time.hour)} - "\
+    "#{end_time.hour}:#{'0' if start_time.min.to_s.length < 2}#{end_time.min} #{am_or_pm(end_time.hour)}"
   end
   
   def am_or_pm(int)
